@@ -1,7 +1,10 @@
-//error
 #include<iostream>
+
+//used functions
 void swap(int &a, int &b);
 void quick_sort(int *a, int m, int n);
+
+//main method
 int main(){
     int T;  //number of test cases
     std::cin>>T;
@@ -20,17 +23,22 @@ int main(){
     }
     return 0;
 }
+
+//swap
 void swap(int &a, int &b){
     int temp;
     temp=a;
     a=b;
     b=temp;
 }
+
+//recursive quick sort
 void quick_sort(int *a, int m, int n){
+    int i,j,pivot;
     if(m<n){
-        int i=m;
-        int j=n+1;
-        int pivot=a[m];
+        i=m;
+        j=n+1;
+        pivot=a[m];
         do{
             do{
                 i=i+1;
@@ -38,7 +46,7 @@ void quick_sort(int *a, int m, int n){
             do{
                 j=j-1;
             }while(a[j]>pivot);
-            if(i>j) swap(a[i],a[j]);
+            if(i<j) swap(a[i],a[j]);
         }while(i<j);
         swap(a[m],a[j]);
         quick_sort(a,m,j-1);
