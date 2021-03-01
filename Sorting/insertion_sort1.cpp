@@ -1,39 +1,35 @@
+// straight insertion sort  
 #include<iostream>
-void insertion_sort ( int *A , int n) 
-{
-    for( int i = 0 ;i < n ; i++ ) {
-    /*storing current element whose left side is checked for its 
-             correct position .*/
+using namespace std;
+void sort(int *a, int n);
 
-      int temp = A[ i ];    
-      int j = i;
-
-       /* check whether the adjacent element in left side is greater or
-            less than the current element. */
-
-          while(  j > 0  && temp < A[ j -1]) {
-
-           // moving the left side element to one position forward.
-                A[ j ] = A[ j-1];   
-                j= j - 1;
-
-           }
-         // moving current element to its  correct position.
-           A[ j ] = temp;       
-     }  
-}
 int main(){
     int N;
-    std::cin>>N;
-    int *A;
-    A=(int*)malloc(sizeof(int)*N);
+    cout<<"Enter the number of elements : ";
+    cin>>N;
+    int A[N];
+    cout<<"Enter the elements - ";
     for(int i=0; i<N; i++){
-        std::cin>>A[i];
+        cin>>A[i];
     }
-    insertion_sort(A,N);
+    sort(A, N);
+    cout<<"Elements after sorted are - ";
     for(int i=0; i<N; i++){
-        std::cout<<A[i]<<" ";
+        cout<<" "<<A[i];
     }
-    std::cout<<std::endl;
+    cout<<endl;
     return 0;
+}
+
+// insertion sort
+void sort(int *a, int n){
+    for(int i=0; i<n; i++){
+        int temp = a[i];
+        int j = i;
+        while(j>0 && temp<a[j-1]){
+            a[j] = a[j-1];
+            j--;
+        }
+        a[j] = temp;
+    }
 }
