@@ -22,3 +22,9 @@ Dynamic Programming (DP) is a technique that solves some particular type of prob
 Like Divide and Conquer, Dynamic Programming combines solutions to sub-problems. Dynamic Programming is mainly used when solutions of the same subproblems are needed again and again. So Dynamic Programming is not useful when there are no common (overlapping) subproblems because there is no point storing the solutions if they are not needed again.
 
 [...read more](https://www.geeksforgeeks.org/overlapping-subproblems-property-in-dynamic-programming-dp-1/)
+
+## Optimal Substructure
+
+A given problems has Optimal Substructure Property if optimal solution of the given problem can be obtained by using optimal solutions of its subproblems.
+
+[...read more](https://www.geeksforgeeks.org/optimal-substructure-property-in-dynamic-programming-dp-2/?ref=lbp)

@@ -36,4 +36,9 @@
 ehthumbs.db
 Thumbs.db
 
+# Vs code folders #
+###################
+./vscode
+/vscode
+
 # git config --global core.excludesfile ~/.gitignore
