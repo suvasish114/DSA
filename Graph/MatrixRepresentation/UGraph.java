@@ -19,8 +19,10 @@ public class UGraph{
         // size = this.size = 4
         // this.list = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
         for(int i=0; i<this.size; i++){
-            this.list.get(list.get(i).get(0)-1).set(list.get(i).get(1)-1,1);
-            this.list.get(list.get(i).get(1)-1).set(list.get(i).get(0)-1,1);
+	        int from = list.get(i).get(0)-1;
+	        int to = list.get(i).get(1)-1;
+            this.list.get(from).set(to,1);
+            this.list.get(to).set(from,1);
         }
     }
     public void displayMatrix(){
