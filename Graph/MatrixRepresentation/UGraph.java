@@ -11,16 +11,20 @@ public class UGraph{
     }
     public UGraph(List<List<Integer>> list, int size){
         this.size = size;
-        List<Integer> temp = new ArrayList<Integer>();
-        for(int i=0; i<this.size; i++) temp.add(0);
-        for(int i=0; i<this.size; i++) this.list.add(temp);
+        for(int i=0; i<this.size; i++) {
+            List<Integer> temp = new ArrayList<Integer>();
+            for(int k=0; k<this.size; k++) temp.add(0);
+            this.list.add(temp);
+        }
 
         // list = [[1, 2], [2, 3], [1, 3], [3, 4]]
         // size = this.size = 4
         // this.list = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
         for(int i=0; i<this.size; i++){
-            this.list.get(list.get(i).get(0)-1).set(list.get(i).get(1)-1,1);
-            this.list.get(list.get(i).get(1)-1).set(list.get(i).get(0)-1,1);
+	        int from = list.get(i).get(0)-1;
+	        int to = list.get(i).get(1)-1;
+            this.list.get(from).set(to,1);
+            this.list.get(to).set(from,1);
         }
     }
     public void displayMatrix(){
