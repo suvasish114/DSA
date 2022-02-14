@@ -11,6 +11,10 @@ public class UndirectedGraph implements Graph{
     public UndirectedGraph(){
         super();
     }
+    public UndirectedGraph(int size){
+        super();
+        this.size = size;
+    }
     public UndirectedGraph(List<List<Integer>> list, int size){
         this.size = size;
         for(int i=0; i<this.size; i++) {
@@ -24,6 +28,7 @@ public class UndirectedGraph implements Graph{
         }
     }
 
+    // methods
     public void addEdge(int from, int to){
         try{
             this.list.get(from-1).set(to-1, 1);
@@ -33,7 +38,6 @@ public class UndirectedGraph implements Graph{
             System.out.println("Edge "+from+" to "+to+" is not possible.");
         }
     }
-
     public void addVertex(List<Integer> adjacent){
         this.size++;
         List<Integer> temp = new ArrayList<Integer>();
@@ -45,22 +49,33 @@ public class UndirectedGraph implements Graph{
             addEdge(this.size, a);
         }
     }
-    public void deleteEdge(){
-
+    public void deleteEdge(int from, int to){
+        this.list.get(from).set(to, 0);
+        this.list.get(to).set(from, 0);
     }
-    
-    public void deleteVertex(){
-
+    public void deleteVertex(int vertex){
+        try{
+            for(int i=vertex-1; i<this.size; i++){
+                for(int j=0; j<this.size; j++){
+                    this.list.get(i).set(j, this.list.get(i).get(j+1));
+                }
+            }
+            for(int i=vertex-1; i<this.size; i++){
+                for(int j=0; j<this.size; j++){
+                    this.list.get(j).set(i, this.list.get(j).get(i+1));
+                }
+            }
+            this.size -= 1;
+        }catch(IndexOutOfBoundsException e){
+            System.out.println("Deletion of vertex "+vertex+" is not possible.");
+        }
     }
-
     public void displayMatrix(){
         for(List<Integer> a: this.list){
             for(int b: a) System.out.print(b+" ");
             System.out.println();
         }
     }
-
-    // get matrix
     public List<List<Integer>> getMatrix(){
         return this.list;
     }

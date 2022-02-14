@@ -17,4 +17,7 @@ To represent an undirected graph, we set each index of `from vertix` to `to vert
 ## Delete Edge
 
 ## Implementation
+
 - Java: [Ugraph.java](./Ugraph.java)
+
+# Directed Graph
