@@ -1,6 +1,6 @@
 # Array Interview Questions
 
-## GATE/NET Questions
+### GATE/NET Questions
 
 Question 1: Determine output
 ```cpp
@@ -86,7 +86,12 @@ a[0][0] = 10; // run time error
 Question 8: Determine output
 ```cpp
 // x starts from address 2000
-unsigned int x[4][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}, {10, 11, 12}};
+unsigned int x[4][3] = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9},
+    {10, 11, 12}
+};
 printf ("%u, %u, %u", x+3, *(x+3), *(x+2)+3);
 
 /* Output */
